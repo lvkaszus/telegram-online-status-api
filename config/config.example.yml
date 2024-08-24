@@ -1,0 +1,3 @@
+api:
+  id: "YOUR_TELEGRAM_APP_API_ID"
+  hash: "YOUR_TELEGRAM_APP_API_HASH"
