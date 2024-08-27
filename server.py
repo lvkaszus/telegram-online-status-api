@@ -88,7 +88,7 @@ async def shutdown():
 
 app.lifespan = lambda: (startup(), shutdown())
 
-@app.get("/status")
+@app.get("/data")
 async def get_status():
     cache = await load_cache()
 
@@ -112,9 +112,9 @@ async def get_status():
         cache['cache'] = True
         await save_cache(cache)
 
-        return {"cache": False, "status": cache['status']}
+        return {"cache": False, "online": cache['status']}
 
-    return {"cache": True, "status": cache['status']}
+    return {"cache": True, "online": cache['status']}
 
 if __name__ == "__main__":
     uvicorn.run("server:app", port=8001)
